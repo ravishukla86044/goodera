@@ -1,6 +1,27 @@
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
-function Nav({ active = 1 }) {
+function Nav({ active = 1, setActive }) {
+  const history = useHistory();
+
+  const handelClick = (e) => {
+    let n = e.target.className;
+
+    if (n == 1) {
+      setActive(1);
+      history.push("/");
+    } else if (n == 2) {
+      setActive(2);
+      history.push("/upskill");
+    } else if (n == 3) {
+      setActive(3);
+      history.push("/postjob");
+    } else if (n == 4) {
+      setActive(4);
+      history.push("/login");
+    }
+  };
+
   return (
     <Con active={active}>
       <div className="logo">
@@ -8,11 +29,11 @@ function Nav({ active = 1 }) {
       </div>
 
       <div className="navDiv">
-        <ul>
-          <li>Find Job</li>
-          <li>Upskill Yourself</li>
-          <li>Post a Job</li>
-          <li>Sign in</li>
+        <ul onClick={handelClick}>
+          <li className="1">Find Job</li>
+          <li className="2"> Upskill Yourself</li>
+          <li className="3">Post a Job</li>
+          <li className="4">Sign in</li>
         </ul>
       </div>
     </Con>

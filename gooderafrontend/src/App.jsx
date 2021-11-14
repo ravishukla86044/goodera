@@ -3,11 +3,14 @@ import { Header } from "./Components/Header/Header";
 import "./App.css";
 import { Search } from "./Components/Middle/Search";
 import { Switch, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [active, setActive] = useState(1);
+
   return (
     <div className="App">
-      <Header />
+      <Header active={active} setActive={setActive} />
       <Switch>
         <Route exact path="/">
           <>
