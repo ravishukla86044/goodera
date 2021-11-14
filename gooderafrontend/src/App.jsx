@@ -4,13 +4,19 @@ import "./App.css";
 import { Search } from "./Components/Middle/Search";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
+import styled from "styled-components";
+
+const H = styled.h1`
+  color: grey;
+  margin: auto;
+  margin-top: 40px;
+  width: max-content;
+`;
 
 function App() {
-  const [active, setActive] = useState(1);
-
   return (
     <div className="App">
-      <Header active={active} setActive={setActive} />
+      <Header />
       <Switch>
         <Route exact path="/">
           <>
@@ -19,13 +25,13 @@ function App() {
         </Route>
 
         <Route path="/upskill">
-          <h1>Upskill Yourself Here</h1>
+          <H>Upskill Yourself Here</H>
         </Route>
         <Route path="/postjob">
-          <h1>Post a Job here</h1>
+          <H>Post a Job here</H>
         </Route>
         <Route path="/login">
-          <h1>Login Here</h1>
+          <H>Login Here</H>
         </Route>
       </Switch>
     </div>
