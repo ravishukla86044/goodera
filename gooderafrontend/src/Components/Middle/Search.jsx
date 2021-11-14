@@ -133,6 +133,7 @@ const ItemList = styled.div`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   box-sizing: border-box;
   flex-wrap: wrap;
@@ -140,7 +141,6 @@ const ItemList = styled.div`
   margin-top: 20px;
 
   & > div {
-    margin-right: 20px;
     margin-bottom: 20px;
   }
 `;
