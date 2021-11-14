@@ -29,13 +29,15 @@ function Search() {
   const [text, setText] = useState("");
   const [location, setLocation] = useState("");
   const [dataAll, setDataAll] = useState(initialData);
+
   const handleChange = (event) => {
     setLocation(event.target.value);
     console.log(event.target.value);
   };
 
   const getData = async () => {
-    let { data } = await axios.get("http://localhost:3001/jobs");
+    let { data } = await axios.get(`http://localhost:3001/jobs?title=${text}&location=${location}`);
+    console.log(data, text, location);
     setDataAll(data.data);
   };
 
@@ -62,9 +64,7 @@ function Search() {
         </div>
         <div className="selectDiv">
           <select className="select" onChange={handleChange} name="location" value={location}>
-            <option aria-label="None" value="Select location">
-              Select location
-            </option>
+            <option value={""}>Select location</option>
             <option value={"London"}>London</option>
             <option value={"Germany"}>Germany</option>
             <option value={"India"}>India</option>
@@ -135,7 +135,7 @@ const ItemList = styled.div`
   align-items: center;
 
   box-sizing: border-box;
-
+  flex-wrap: wrap;
   margin: auto;
   margin-top: 20px;
 `;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 function SearchItem({ data }) {
-  console.log(data);
   return (
     <Con>
       <div className="imageDiv">
