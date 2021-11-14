@@ -1,9 +1,13 @@
+#root
+1- All the files are in the master branch
+
 # goodera
 1- Their are two folders one for frontend and other for backend.
 2- Run the backend on 3001 port.
 3- Fronend can be run on any port other than 3001.
 4- Run frontend and backend seperatly.
 5- Before running anything do npm i for all the dependencies.
+
 
 
 
