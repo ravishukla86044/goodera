@@ -46,12 +46,36 @@ let data = [
 ];
 
 app.get("/jobs", function (req, res) {
-  res.status(200).json({ data: data });
+  let title = req.query.title;
+  let location = req.query.location;
+
+  let a = [];
+  if (title !== "" && location !== "") {
+    for (var i = 0; i < data.length; i++) {
+      if (
+        data[i].title.toLowerCase() == title.toLowerCase() &&
+        data[i].location.toLowerCase() == location.toLowerCase()
+      )
+        a.push(data[i]);
+    }
+  } else if (title == "" && location !== "") {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].location.toLowerCase() == location.toLowerCase()) a.push(data[i]);
+    }
+  } else if (title !== "" && location == "") {
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].title.toLowerCase() == title.toLowerCase()) a.push(data[i]);
+    }
+  } else {
+    a = data;
+  }
+
+  res.status(200).json({ data: a });
 });
 
 app.get("/jobs/:id", function (req, res) {
   let id = req.params.id;
-  let a;
+  let a = [];
   for (var i = 0; i < data.length; i++) {
     if (data[i].id === id) {
       a.push(data[i]);
