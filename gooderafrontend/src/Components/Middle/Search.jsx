@@ -77,9 +77,13 @@ function Search() {
         </Button>
       </Con>
       <ItemList>
-        {dataAll.map((a) => {
-          return <SearchItem data={a} />;
-        })}
+        {dataAll.length > 0 ? (
+          dataAll.map((a) => {
+            return <SearchItem data={a} />;
+          })
+        ) : (
+          <h1>No result found</h1>
+        )}
       </ItemList>
     </>
   );
@@ -144,6 +148,11 @@ const ItemList = styled.div`
 
   & > div {
     margin-bottom: 20px;
+  }
+
+  h1 {
+    color: grey;
+    margin: auto;
   }
 `;
 export { Search };
