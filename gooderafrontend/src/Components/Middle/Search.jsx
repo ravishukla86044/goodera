@@ -138,5 +138,10 @@ const ItemList = styled.div`
   flex-wrap: wrap;
   margin: auto;
   margin-top: 20px;
+
+  & > div {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
 `;
 export { Search };
