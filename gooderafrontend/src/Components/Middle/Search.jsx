@@ -47,6 +47,8 @@ function Search() {
 
   const handelClick = () => {
     getData();
+    setText("");
+    setLocation("");
   };
 
   return (
