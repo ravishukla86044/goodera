@@ -84,7 +84,7 @@ function Search() {
 }
 
 const Con = styled.div`
-  width: 80%;
+  width: 65%;
   height: max-content;
   border-radius: 8px;
   background: #ffff;
@@ -128,7 +128,7 @@ const Con = styled.div`
 `;
 
 const ItemList = styled.div`
-  width: 80%;
+  width: 65%;
   height: max-content;
 
   display: flex;

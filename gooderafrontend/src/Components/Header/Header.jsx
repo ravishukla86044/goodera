@@ -20,7 +20,7 @@ const Con = styled.div`
   box-sizing: border-box;
   height: max-content;
   background: linear-gradient(90deg, rgb(93, 122, 223), rgb(93, 170, 223));
-  padding: 20px 50px;
+  padding: 20px 17.5%;
   color: white;
 `;
 
