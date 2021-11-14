@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { SearchItem } from "./SearchItem";
+import axios from "axios";
 
 const initialData = [
   {
@@ -27,13 +28,24 @@ const initialData = [
 function Search() {
   const [text, setText] = useState("");
   const [location, setLocation] = useState("");
-  const [data, setData] = useState(initialData);
+  const [dataAll, setDataAll] = useState(initialData);
   const handleChange = (event) => {
     setLocation(event.target.value);
     console.log(event.target.value);
   };
 
-  const handelClick = () => {};
+  const getData = async () => {
+    let { data } = await axios.get("http://localhost:3001/jobs");
+    setDataAll(data.data);
+  };
+
+  useState(() => {
+    getData();
+  });
+
+  const handelClick = () => {
+    getData();
+  };
 
   return (
     <>
@@ -63,7 +75,7 @@ function Search() {
         </Button>
       </Con>
       <ItemList>
-        {data.map((a) => {
+        {dataAll.map((a) => {
           return <SearchItem data={a} />;
         })}
       </ItemList>
