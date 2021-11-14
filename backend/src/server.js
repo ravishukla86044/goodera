@@ -53,18 +53,18 @@ app.get("/jobs", function (req, res) {
   if (title !== "" && location !== "") {
     for (var i = 0; i < data.length; i++) {
       if (
-        data[i].title.toLowerCase() == title.toLowerCase() &&
-        data[i].location.toLowerCase() == location.toLowerCase()
+        data[i].title.toLowerCase().includes(title.toLowerCase()) &&
+        data[i].location.toLowerCase().includes(location.toLowerCase())
       )
         a.push(data[i]);
     }
   } else if (title == "" && location !== "") {
     for (var i = 0; i < data.length; i++) {
-      if (data[i].location.toLowerCase() == location.toLowerCase()) a.push(data[i]);
+      if (data[i].location.toLowerCase().includes(location.toLowerCase())) a.push(data[i]);
     }
   } else if (title !== "" && location == "") {
     for (var i = 0; i < data.length; i++) {
-      if (data[i].title.toLowerCase() == title.toLowerCase()) a.push(data[i]);
+      if (data[i].title.toLowerCase().includes(title.toLowerCase())) a.push(data[i]);
     }
   } else {
     a = data;
