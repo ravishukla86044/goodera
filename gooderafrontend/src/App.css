@@ -1,2 +1,5 @@
 .App {
+  background: #eaeaea;
+  height: max-content;
+  min-height: 100vh;
 }
